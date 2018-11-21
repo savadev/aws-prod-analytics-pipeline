@@ -260,7 +260,7 @@ The basic machine learning workflow consists of 2 separate processes: one for tr
 
 
 
-![1542665751249](https://github.com/vavlani/aws-prod-analytics-pipeline/images/1542665751249.png)
+![1542665751249](https://github.com/vavlani/aws-prod-analytics-pipeline/blob/master/images/1542665751249.png)
 
 
 
@@ -315,7 +315,7 @@ ONNX supports PyTorch, MXNet, Chainer, Caffe2 and many other deep learning libra
 
 **Supported Frameworks**
 
-![1542587350200](https://github.com/vavlani/aws-prod-analytics-pipeline/images/1542587350200.png)
+![1542587350200](https://github.com/vavlani/aws-prod-analytics-pipeline/blob/master/images/1542587350200.png)
 
 #### Code Snippet showing ONNX serialization: PyTorch --> ONNX --> MXNet
 
@@ -476,7 +476,7 @@ There are 2 options for serving serialized models:
 - We could do a **batch process** to get the results
 - We could also setup an **API-based service **which gives results based on user API calls
 
-<img src="https://github.com/vavlani/aws-prod-analytics-pipeline/images/1542666703982.png" style="zoom:70%"/>
+<img src="https://github.com/vavlani/aws-prod-analytics-pipeline/blob/master/images/1542666703982.png" style="zoom:70%"/>
 
 API-based model servers are useful when we want to serve a small number of discrete requests that come in from the users. It makes it convenient for them to quickly get the predictions for an input and act on it. They are not meant to handle hundreds or thousands of consecutive requests from the users.  It would slow down as the number of requests increases.
 
@@ -501,7 +501,7 @@ The table below ***summarizes the differences in model servers***:
 
 The image below shows how we could deploy our model server using Docker images which are being  managed by the AWS ECS Service. The process has been described below the diagram.
 
-<img src="https://github.com/vavlani/aws-prod-analytics-pipeline/images/1542768054867.png" style="zoom:70%"/>
+<img src="https://github.com/vavlani/aws-prod-analytics-pipeline/blob/master/images/1542768054867.png" style="zoom:70%"/>
 
 Once you have trained a model and validated that it works, you would like to ideally put into production for your users so that they can make API calls to it and get the output. To do this, we first need to decide which server we are going to use. There are several options as given in the table above. We will decide that we are going to go ahead with an MXNet Server. We need to first use a Docker image which contains MXNet and MXNet Server. Once we have this we can deploy it using Docker engine as a container. We need to configure the server so that it points to the serialized model that we have stored (possibly in our S3 environment). This code which sets up the connection to connect the Server to the serialized model could again reside in our Docker image. 
 
